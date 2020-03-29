@@ -1,0 +1,21 @@
+#!/bin/bash
+
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
+source /usr/local/bin/virtualenvwrapper.sh
+workon custom-synth
+cd src/custom-synth
+
+# Backend
+cd custom_synth
+
+gnome-terminal \
+--tab --title='Runserver' --command='bash -rcfile scripts/runserver_network.sh' \
+--tab --title='Celery' --command='bash -rcfile scripts/celery_debug_all.sh' \
+--tab --title='iPython' --command='python manage.py shell_plus'
+
+# Frontend
+#cd ../web-client/custom-synth-web
+#
+#gnome-terminal \
+#--tab --title='Run frontend server' --command='yarn start' \

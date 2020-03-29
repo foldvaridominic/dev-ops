@@ -1,0 +1,12 @@
+#!/bin/bash
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+source /usr/local/bin/virtualenvwrapper.sh
+workon "$(echo mcule)"
+cdvirtualenv
+cd app/mcule/mcule
+./scripts/clean_code.sh
+gnome-terminal \
+--tab --title='Runserver' --command='bash -rcfile scripts/runserver_network.sh' \
+--tab --title='Celery' --command='bash -rcfile scripts/celery_debug_all.sh' \
+--tab --title='iPython' --command='python manage.py shell_plus'
