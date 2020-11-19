@@ -24,6 +24,9 @@ Plugin 'vim-syntastic/syntastic'
 " File tree
 Plugin 'scrooloose/nerdtree'
 
+" Color scheme
+Plugin 'jnurmine/Zenburn'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -49,6 +52,7 @@ set tabstop=4 shiftwidth=4 expandtab
 
 set title
 "set listchars=space:·
-set list
+"set list
 set autoindent
 set nu
+set mouse=r
